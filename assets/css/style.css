@@ -48,11 +48,11 @@ p {
 }
 
 .correct {
-    background: #9aeabc;
+    background: #00ff00;
 }
 
 .incorrect {
-    background: #ff9393;
+    background: #ff0000;
 }
 
 #next-btn {
