@@ -9,30 +9,30 @@ var questions = [
     ]
   },
   {
-    question: "Question",
+    question: "What is the css file called?",
     answers: [
-      {text: "answer", correct: false},
-      {text: "answer", correct: true},
-      {text: "answer", correct: false},
-      {text: "answer", correct: false},
+      {text: "style.css", correct: true},
+      {text: "css.style", correct: false},
+      {text: "css", correct: false},
+      {text: "style", correct: false},
     ]
   },
   {
-    question: "Question",
+    question: "What is the HTML file called?",
     answers: [
-      {text: "answer", correct: false},
-      {text: "answer", correct: true},
-      {text: "answer", correct: false},
-      {text: "answer", correct: false},
+      {text: "index", correct: false},
+      {text: "html", correct: false},
+      {text: "index.html", correct: true},
+      {text: "html.index", correct: false},
     ]
   },
   {
-    question: "Question",
+    question: "What is the JavaScript file called?",
     answers: [
-      {text: "answer", correct: false},
-      {text: "answer", correct: true},
-      {text: "answer", correct: false},
-      {text: "answer", correct: false},
+      {text: "script.java", correct: false},
+      {text: "script.js", correct: true},
+      {text: "java.script", correct: false},
+      {text: "js.script", correct: false},
     ]
   }
 ];
@@ -45,7 +45,6 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 function startQuiz() {
-  updateTimer();
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
@@ -111,15 +110,6 @@ function handleNextButton(){
     showQuestion();
   }else{
     showScore();
-  }
-}
-
-function updateTimer() {
-  time--;
-  timerElement.textContent = time + " seconds remaining.";
-
-  if (time === 0) {
-      clearInterval(timer);
   }
 }
 
