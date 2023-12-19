@@ -3,8 +3,8 @@ var questions = [
     question: "Commonly used data types do not include...",
     answers: [
       {text: "Arrays", correct: false},
-      {text: "Strings", correct: true},
-      {text: "Alerts", correct: false},
+      {text: "Strings", correct: false},
+      {text: "Alerts", correct: true},
       {text: "Booleans", correct: false},
     ]
   },
@@ -42,14 +42,27 @@ var answerButtons = document.getElementById("answer-buttons");
 var nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
-let score = 0;
 
 function startQuiz() {
+  updateTimer();
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
   showQuestion();
 }
+
+let time = 60;
+
+function updateTimer() {
+  const timerElement = document.getElementById('timer');
+  time--;
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  timerElement.textContent = (time + " seconds remaining.");
+}
+
+const timerInterval = setInterval(updateTimer, 1000);
 
 function showQuestion() {
   resetState();
@@ -84,9 +97,9 @@ function selectAnswer(e) {
   var isCorrect = selectedBtn.dataset.correct === "true";
   if(isCorrect) {
     selectedBtn.classList.add("correct");
-    score++;
   }else{
     selectedBtn.classList.add("incorrect");
+    time-=15;
   }
   Array.from(answerButtons.children).forEach(button => {
     if(button.dataset.correct === "true"){
@@ -99,7 +112,7 @@ function selectAnswer(e) {
 
 function showScore(){
   resetState();
-  questionElement.innerHTML = "You scored " + score + " out of 4.";
+  questionElement.innerHTML = "You scored " + time + " second(s).";
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
