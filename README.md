@@ -45,7 +45,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 
     ```
-  ![Alt text](assets/images/quiz.PNG)
+  ![Alt text](assets/images/quiz2.PNG)
     ```
 
     
