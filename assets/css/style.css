@@ -39,9 +39,9 @@ p {
 .btn {
     color: #E4F2EE;
     background: #525953;
-    width: 100%;
+    width: 45%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 10px 10px 10px;
     text-align: center;
     border-radius: 4px;
     cursor: pointer;

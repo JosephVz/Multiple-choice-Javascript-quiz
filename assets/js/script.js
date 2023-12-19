@@ -40,6 +40,7 @@ var questions = [
 var questionElement = document.getElementById("question");
 var answerButtons = document.getElementById("answer-buttons");
 var nextButton = document.getElementById("next-btn");
+var score = document.getElementById("high-score");
 
 let currentQuestionIndex = 0;
 
@@ -56,10 +57,12 @@ let time = 60;
 function updateTimer() {
   const timerElement = document.getElementById('timer');
   time--;
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
-  const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  
+  if (time > 0) {
   timerElement.textContent = (time + " seconds remaining.");
+  } else { (time <= 0)
+  timerElement.textContent = ("Times Up!");
+  }
 }
 
 const timerInterval = setInterval(updateTimer, 1000);
@@ -112,7 +115,15 @@ function selectAnswer(e) {
 
 function showScore(){
   resetState();
-  questionElement.innerHTML = "You scored " + time + " second(s).";
+  
+  if (time > 0) {
+    questionElement.innerHTML = "You did It! You scored " + time + " second(s).";
+    } else { (time <= 0) 
+    questionElement.innerHTML = "Try again.";
+    }
+
+  
+
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
@@ -134,4 +145,11 @@ nextButton.addEventListener("click", ()=>{
   }
 });
 
+
+
+
 startQuiz();
+
+
+//To do
+//reset timer on play again
